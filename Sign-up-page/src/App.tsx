@@ -27,7 +27,7 @@ export const App = () => {
     setStrength(strengthLabels[strengthIndicator])
   }
 
-  const handleChange = (e)=>{
+  const handleChange = (e:any)=>{
     getStrength(e.target.value)
   }
 
