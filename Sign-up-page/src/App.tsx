@@ -1,10 +1,38 @@
 import './App.css';
-import React, { useState } from 'react'
+import React, { FormEvent, useState } from 'react'
 
 const strengthLabels = ['weak', "medium", "strong"];
 export const App = () => {
 
   const [strength, setStrength] = useState("");
+  const [confirmPwd, setConfirmPwd] = useState<boolean>(false);
+
+  const [input, setInput] =useState({
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
+  const [error, setError] =useState({
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
+
+  const handleUserInput = (name:string, value:any)=>{
+    setInput({
+      ...input,
+      [name]: value
+    })
+  }
+
+  const validateInput = (e:FormEvent<HTMLInputElement>)=>{
+    e.preventDefault();
+    let inputError = {
+      email: '',
+      password: '',
+      confirmPassword: '', 
+    }
+  }
 
   const getStrength = (password: string)=>{
     let strengthIndicator:number = -1
@@ -36,6 +64,7 @@ export const App = () => {
       <h2>Sign Up</h2>
       <form className='login-form' action="">
         <div className="username">
+          <div className="">
           <input
           autoComplete='off'
           spellCheck="false"
@@ -51,15 +80,28 @@ export const App = () => {
           className='control'
           type="password"
           placeholder='Password'
-          onChange={handleChange}
+          onChange={() => setConfirmPwd(true)}
+          maxLength={8}
           />
+          </div>
 
+       {confirmPwd && <input
+          name='Confirm Password'
+          spellCheck="false"
+          className='control'
+          type="password"
+          placeholder='Confirm Password'
+          onChange={handleChange}
+          />}
+
+          <div className="barStrength">
           <div className={`bars ${strength}`}>
             <div className=""></div>
           </div>
             <div className="strength">
               {strength && <> {strength} password </>}
             </div>
+          </div>
             <button type='button' className='control'>
               Sign Up
             </button>
