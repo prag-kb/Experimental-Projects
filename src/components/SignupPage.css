@@ -1,0 +1,27 @@
+.signUpPage {
+    margin: auto;
+    margin-top: 10rem;
+    /* width: 100%; */
+    /* text-align: center; */
+    /* display: ; */
+    justify-content: center;
+    align-items: center;
+}
+
+.forgotPassword{
+    font-size: small;
+    align-self: baseline;
+    color: orangered;
+    cursor: pointer;
+}
+
+.googleLogin{
+    background-color: rgba(211, 211, 211, 0.726);
+    border: 0;
+    color: black;
+}
+
+.createAccount{
+    color: lightseagreen;
+    cursor: pointer;
+}

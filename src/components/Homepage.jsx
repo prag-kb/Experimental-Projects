@@ -1,16 +1,19 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 import './Homepage.css'
-import {Routes, Route, useNavigate} from 'react-router-dom';
-import SignUpPage from './SignUpPage';
+// import {useHistory, Route, Router} from 'react-router-dom';
 
 export const Homepage = () => {
-    const navigate = useNavigate();
 
-    const navigateToSignUpPage = () => {
-    // 👇️ navigate to /contacts
-        navigate('/sign-up');
-    };
+    // const history = useHistory();
+    // console.log('history:', history)
+
+    // const navigateToSignUpPage = () => {
+    // // 👇️ navigate to /contacts
+    //     // navigate('/sign-up');
+    //     let path = `sign-up-page`
+    //     history.push(path)
+    // };
 
 
   return (
@@ -26,11 +29,11 @@ export const Homepage = () => {
             Dashboard
         </h3>
         </div>
-        <Button className="button" onClick={navigateToSignUpPage}>Click here...</Button>
-        <Routes>
+        <Button className="button">Click here...</Button>
+        {/* <Router>
           <Route path="/sign-up" element={<SignUpPage />} />
           {/* <Route path="/" element={<Homepage />} /> */}
-        </Routes>
+        {/* </Router>} */}
     </div>
   )
 }
